@@ -1,0 +1,225 @@
+/* styles.css - External stylesheet */
+
+/* Reset and basic styling */
+        /* CSS Variables for Theme */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #495057; /* Dark Gray */
+            --background-color: #f8f9fa;
+            --sidebar-width: 280px;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --code-bg: #e6f7ff;
+            --code-border: #b3e0ff;
+        }
+
+        /* BASE STYLES */
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            margin: 0;
+            display: flex; /* Key for left-side vertical layout */
+            min-height: 100vh;
+            background-color: var(--background-color);
+            color: var(--secondary-color);
+        }
+
+        /* --- LEFT NAVIGATION PANE (TABS) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #ffffff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08); /* More prominent shadow */
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 25px 20px 20px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid var(--primary-color); /* Visual emphasis */
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .sidebar h1 {
+            font-size: 1.35rem; /* Slightly smaller for compactness */
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 10px 0; /* Padding for list */
+            margin: 0;
+        }
+
+        .nav-list li a {
+            display: flex; /* Key for vertical tab appearance */
+            align-items: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--secondary-color);
+            border-left: 4px solid transparent;
+            transition: all 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+
+        .nav-list li a:hover {
+            background-color: #f0f8ff;
+            color: var(--primary-color);
+        }
+
+        .nav-list li a.active {
+            background-color: #e6f2ff;
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color); /* Highlight for active vertical tab */
+            font-weight: 600;
+        }
+        
+        /* --- MAIN CONTENT AREA --- */
+        .content-area {
+            flex-grow: 0;
+            padding: 40px; /* Increased padding */
+            max-width: 1000px; /* Increased max-width for content */
+            margin-left: auto; /* Center content within remaining space */
+            margin-right: auto;
+        }
+
+        .home-page-title {
+            color: #212529;
+            font-size: 2.8rem; /* Larger and more impactful */
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color); /* Matches sidebar header */
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .content-area h2 {
+            color: #212529;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ced4da;
+            position: relative;
+        }
+        
+        .content-area h2::before { /* Decorative element for h2 */
+            content: '🔗';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .content-area h3 {
+            color: var(--primary-color); /* Use primary color for subheadings */
+            font-size: 1.4rem; /* Slightly larger */
+            margin-top: 35px;
+            font-weight: 600;
+        }
+
+        /* --- CONTENT STYLING --- */
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Table improvements */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: none; /* Remove inner borders */
+            border-bottom: 1px solid #dee2e6; /* Use bottom border only */
+            padding: 5px; /* Increased padding */
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e9ecef;
+            font-weight: 700;
+            color: #212529;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none; /* Remove border from last row */
+        }
+
+        tbody tr:hover {
+            background-color: #f0f8ff; /* Subtle hover effect */
+        }
+        
+        /* Example and Terminology Highlighting */
+        .example-box {
+            background-color: var(--code-bg);
+            border-left: 5px solid var(--code-border);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .example {
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+        
+        .banned-term {
+            color: var(--danger-color);
+            font-weight: bold;
+        }
+
+        .alternative {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        /* Note/Tip box for emphasis (New style) */
+        .tip-box {
+            border-left: 5px solid #ffc107;
+            background-color: #fffbe6;
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .tip-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Hide content sections initially */
+        .content-section {
+            display: none;
+            padding-top: 10px;
+        }
+
+        /* Make the Home section the default view */
+        #home-welcome {
+            display: block;
+        }
